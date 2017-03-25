@@ -9,5 +9,15 @@ using namespace std;
 
 class Order
 {
+	private:
+		int order_number;
+		string date;
+		Customer customer;
+		Sales_associate sales_associate;
+		Robot_model robot_model;
+		int Status;
 
+	public:
+		double robot_cost();
+		double extended_price();
 };
