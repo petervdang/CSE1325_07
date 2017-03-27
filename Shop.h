@@ -6,7 +6,7 @@ class Shop
 {
 	private:
 		Order orders;
-		Robot_part robot_parts;
+		vector<Robot_part> robot_parts;
 		Robot_model robot_models;
 		Customer customers;
 		Sales_associate sales_associates;
