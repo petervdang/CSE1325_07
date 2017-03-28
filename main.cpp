@@ -5,6 +5,7 @@ using namespace std;
 Fl_Window *win;
 Fl_Menu_Bar *menubar;
 Shop shop;
+vector<Robot_part> rob;
 
 class View : public Fl_Box
 {
@@ -21,7 +22,17 @@ void CloseCB(Fl_Widget *w, void *p)
 
 void ComponentCB(Fl_Widget *w, void *p)
 {
-	shop.create_new_robot_part();
+	shop.create_new_robot_part(rob);
+}
+
+void ModelCB(Fl_Widget *w, void *p)
+{
+	shop.create_new_robot_model();
+}
+
+void ListCB(Fl_Widget *w, void *p)
+{
+	shop.list_Robot_Parts();
 }
 
 Fl_Menu_Item menuitems[] = {
@@ -31,7 +42,9 @@ Fl_Menu_Item menuitems[] = {
                 { 0 },
 
 	{"&Create", 0,0,0, FL_SUBMENU},
+		{ "Robot Model", FL_ALT + 'm', (Fl_Callback *) ModelCB},
 		{ "&Robot Component", FL_ALT + 'c', (Fl_Callback *) ComponentCB},
+		{ "&List Components", FL_ALT + 'l', (Fl_Callback *) ListCB},
 		{ 0 },
 	{ 0 }
 };
